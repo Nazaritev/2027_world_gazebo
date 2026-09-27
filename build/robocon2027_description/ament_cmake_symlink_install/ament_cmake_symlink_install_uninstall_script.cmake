@@ -1,7 +1,7 @@
 # generated from
 # ament_cmake_core/cmake/symlink_install/ament_cmake_symlink_install_uninstall_script.cmake.in
 
-set(install_manifest "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/symlink_install_manifest.txt")
+set(install_manifest "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/symlink_install_manifest.txt")
 if(NOT EXISTS "${install_manifest}")
   message(FATAL_ERROR "Cannot find symlink install manifest: ${install_manifest}")
 endif()

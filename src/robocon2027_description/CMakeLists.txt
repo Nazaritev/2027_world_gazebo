@@ -15,6 +15,22 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
+# Keep the cloned Gazebo field model unchanged, while making it available from
+# the installed ROS package used by both launch files.
+set(EXTERNAL_GAZEBO_MODELS "${CMAKE_CURRENT_SOURCE_DIR}/../../gazebo_models")
+install(
+  DIRECTORY "${EXTERNAL_GAZEBO_MODELS}/robocon_ground"
+  DESTINATION share/${PROJECT_NAME}/gazebo_models
+)
+install(
+  FILES "${EXTERNAL_GAZEBO_MODELS}/robocon_track.world"
+  DESTINATION share/${PROJECT_NAME}/gazebo_models
+)
+install(
+  DIRECTORY "${EXTERNAL_GAZEBO_MODELS}/robocon_tops"
+  DESTINATION share/${PROJECT_NAME}/gazebo_models
+)
+
 install(
   PROGRAMS
     scripts/mecanum_controller.py

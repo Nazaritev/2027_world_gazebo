@@ -23,7 +23,7 @@ function(ament_cmake_symlink_install_directory cmake_current_source_dir)
 
   # make destination absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/luongngoctu/robocon2027_gazebo/install/robocon2027_description/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/alice/rc_2027/Robocon2027/install/robocon2027_description/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -55,7 +55,7 @@ function(ament_cmake_symlink_install_directory cmake_current_source_dir)
         # remove trailing slash
         string(SUBSTRING "${dir}" 0 ${offset} dir)
       endif()
-
+      
       # Create destination directory.
       # This does *not* solve the problem of empty directories WITHIN the install tree,
       # but does make sure that the top-level directory specified by the caller gets created.
@@ -128,7 +128,7 @@ function(ament_cmake_symlink_install_files cmake_current_source_dir)
 
   # make destination an absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/luongngoctu/robocon2027_gazebo/install/robocon2027_description/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/alice/rc_2027/Robocon2027/install/robocon2027_description/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -186,7 +186,7 @@ function(ament_cmake_symlink_install_programs cmake_current_source_dir)
 
   # make destination an absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/luongngoctu/robocon2027_gazebo/install/robocon2027_description/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/alice/rc_2027/Robocon2027/install/robocon2027_description/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -233,10 +233,6 @@ function(ament_cmake_symlink_install_targets)
       "unused/unsupported arguments: ${ARG_UNPARSED_ARGUMENTS}")
   endif()
 
-  list(REVERSE ARG_TARGET_FILES)
-  list(REMOVE_DUPLICATES ARG_TARGET_FILES)
-  list(REVERSE ARG_TARGET_FILES)
-
   # iterate over target files
   foreach(file ${ARG_TARGET_FILES})
     if(NOT IS_ABSOLUTE "${file}")
@@ -249,7 +245,7 @@ function(ament_cmake_symlink_install_targets)
     get_filename_component(fileext "${file}" EXT)
     if(fileext STREQUAL ".a" OR fileext STREQUAL ".lib")
       set(destination "${ARG_ARCHIVE_DESTINATION}")
-    elseif(fileext MATCHES "(\\.[0-9]+)?(\\.[0-9]+)?(\\.[0-9]+)?\\.dylib$" OR fileext MATCHES "\\.so(\\.[0-9]+)?(\\.[0-9]+)?(\\.[0-9]+)?$")
+    elseif(fileext STREQUAL ".dylib" OR fileext MATCHES "\\.so(\\.[0-9]+)?(\\.[0-9]+)?(\\.[0-9]+)?$")
       set(destination "${ARG_LIBRARY_DESTINATION}")
     elseif(fileext STREQUAL "" OR fileext STREQUAL ".dll" OR fileext STREQUAL ".exe")
       set(destination "${ARG_RUNTIME_DESTINATION}")
@@ -260,7 +256,7 @@ function(ament_cmake_symlink_install_targets)
 
     # make destination an absolute path and ensure that it exists
     if(NOT IS_ABSOLUTE "${destination}")
-      set(destination "/home/luongngoctu/robocon2027_gazebo/install/robocon2027_description/${destination}")
+      set(destination "/home/alice/rc_2027/Robocon2027/install/robocon2027_description/${destination}")
     endif()
     if(NOT EXISTS "${destination}")
       file(MAKE_DIRECTORY "${destination}")
@@ -320,49 +316,55 @@ message(STATUS "Execute custom install script")
 # begin of custom install code
 
 # install(DIRECTORY "meshes" "urdf" "worlds" "launch" "config" "DESTINATION" "share/robocon2027_description")
-ament_cmake_symlink_install_directory("/home/luongngoctu/robocon2027_gazebo/src/robocon2027_description" DIRECTORY "meshes" "urdf" "worlds" "launch" "config" "DESTINATION" "share/robocon2027_description")
+ament_cmake_symlink_install_directory("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" DIRECTORY "meshes" "urdf" "worlds" "launch" "config" "DESTINATION" "share/robocon2027_description")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robocon2027_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(DIRECTORY "/home/alice/rc_2027/Robocon2027/src/robocon2027_description/../../gazebo_models/robocon_ground" "DESTINATION" "share/robocon2027_description/gazebo_models")
+ament_cmake_symlink_install_directory("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" DIRECTORY "/home/alice/rc_2027/Robocon2027/src/robocon2027_description/../../gazebo_models/robocon_ground" "DESTINATION" "share/robocon2027_description/gazebo_models")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/robocon2027_description" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/home/alice/rc_2027/Robocon2027/src/robocon2027_description/../../gazebo_models/robocon_track.world" "DESTINATION" "share/robocon2027_description/gazebo_models")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/src/robocon2027_description/../../gazebo_models/robocon_track.world" "DESTINATION" "share/robocon2027_description/gazebo_models")
 
-# install(FILES "/opt/ros/lyrical/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/robocon2027_description/environment")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_2_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(DIRECTORY "/home/alice/rc_2027/Robocon2027/src/robocon2027_description/../../gazebo_models/robocon_tops" "DESTINATION" "share/robocon2027_description/gazebo_models")
+ament_cmake_symlink_install_directory("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" DIRECTORY "/home/alice/rc_2027/Robocon2027/src/robocon2027_description/../../gazebo_models/robocon_tops" "DESTINATION" "share/robocon2027_description/gazebo_models")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/robocon2027_description/environment")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_3_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robocon2027_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robocon2027_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 
-# install(FILES "/opt/ros/lyrical/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/robocon2027_description/environment")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_4_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/robocon2027_description" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/robocon2027_description" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/robocon2027_description/environment")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_5_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/robocon2027_description/environment")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/robocon2027_description/environment")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/robocon2027_description")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_6_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/robocon2027_description/environment")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/robocon2027_description/environment")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.fish" "DESTINATION" "share/robocon2027_description")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_7_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/robocon2027_description/environment")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/robocon2027_description/environment")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/robocon2027_description")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_8_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/robocon2027_description/environment")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/robocon2027_description/environment")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/robocon2027_description")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_9_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/robocon2027_description")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/robocon2027_description")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/robocon2027_description")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_10_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/robocon2027_description")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/robocon2027_description")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/robocon2027_description")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_11_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/robocon2027_description")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/robocon2027_description")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_index/share/ament_index/resource_index/packages/robocon2027_description" "DESTINATION" "share/ament_index/resource_index/packages")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_12_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/robocon2027_description")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/robocon2027_description")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_core/robocon2027_descriptionConfig.cmake" "/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_core/robocon2027_descriptionConfig-version.cmake" "DESTINATION" "share/robocon2027_description/cmake")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_13_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/robocon2027_description")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/robocon2027_description")
 
-# install(FILES "/home/luongngoctu/robocon2027_gazebo/src/robocon2027_description/package.xml" "DESTINATION" "share/robocon2027_description")
-include("/home/luongngoctu/robocon2027_gazebo/build/robocon2027_description/ament_cmake_symlink_install_files_14_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_index/share/ament_index/resource_index/packages/robocon2027_description" "DESTINATION" "share/ament_index/resource_index/packages")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_index/share/ament_index/resource_index/packages/robocon2027_description" "DESTINATION" "share/ament_index/resource_index/packages")
+
+# install(FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_core/robocon2027_descriptionConfig.cmake" "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_core/robocon2027_descriptionConfig-version.cmake" "DESTINATION" "share/robocon2027_description/cmake")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_core/robocon2027_descriptionConfig.cmake" "/home/alice/rc_2027/Robocon2027/build/robocon2027_description/ament_cmake_core/robocon2027_descriptionConfig-version.cmake" "DESTINATION" "share/robocon2027_description/cmake")
+
+# install(FILES "/home/alice/rc_2027/Robocon2027/src/robocon2027_description/package.xml" "DESTINATION" "share/robocon2027_description")
+ament_cmake_symlink_install_files("/home/alice/rc_2027/Robocon2027/src/robocon2027_description" FILES "/home/alice/rc_2027/Robocon2027/src/robocon2027_description/package.xml" "DESTINATION" "share/robocon2027_description")

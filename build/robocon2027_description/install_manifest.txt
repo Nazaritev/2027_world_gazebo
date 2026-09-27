@@ -1,1 +1,1 @@
-/home/luongngoctu/robocon2027_gazebo/install/robocon2027_description/lib/robocon2027_description/mecanum_controller
+/home/alice/rc_2027/Robocon2027/install/robocon2027_description/lib/robocon2027_description/mecanum_controller
