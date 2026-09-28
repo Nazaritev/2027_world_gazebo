@@ -31,6 +31,16 @@ install(
   DESTINATION share/${PROJECT_NAME}/gazebo_models
 )
 
+# Install the TurtleBot3 models beside the field so model:// URIs resolve.
+install(
+  DIRECTORY
+    "${EXTERNAL_GAZEBO_MODELS}/turtlebot3_burger"
+    "${EXTERNAL_GAZEBO_MODELS}/turtlebot3_waffle"
+    "${EXTERNAL_GAZEBO_MODELS}/turtlebot3_waffle_pi"
+    "${EXTERNAL_GAZEBO_MODELS}/turtlebot3_common"
+  DESTINATION share/${PROJECT_NAME}/gazebo_models
+)
+
 install(
   PROGRAMS
     scripts/mecanum_controller.py
