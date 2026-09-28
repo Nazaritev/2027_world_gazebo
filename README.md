@@ -1,6 +1,5 @@
-感谢 [https://github.com/jimi4-lei/](https://github.com/jimi4-lei/)
-
-`gazebo_models` 开源修改自 [https://github.com/jimi4-lei/gazebo_models](https://github.com/jimi4-lei/gazebo_models)，修改了正确的天空块的摆放方式。
+感谢 [https://github.com/jimi4-lei/](https://github.com/jimi4-lei/gazebo_models)开源
+修改自 [https://github.com/jimi4-lei/gazebo_models](https://github.com/jimi4-lei/gazebo_models)，修改了正确的天空块的摆放方式。
 
 以下方式可以启动：
 
