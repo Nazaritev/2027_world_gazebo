@@ -140,7 +140,7 @@
       <sensor name="hls_lfcd_lds" type="ray">
         <always_on>true</always_on>
         <visualize>true</visualize>
-        <pose>-0.064 0 0.121 0 0 0</pose>
+        <pose>-0.064 0 0.011 0 0 0</pose>
         <update_rate>5</update_rate>
         <ray>
           <scan>
@@ -152,8 +152,8 @@
             </horizontal>
           </scan>
           <range>
-            <min>0.120000</min>
-            <max>3.5</max>
+            <min>0.200000</min>
+            <max>10.0</max>
             <resolution>0.015000</resolution>
           </range>
           <noise>
@@ -298,7 +298,7 @@
     </link>
 
     <link name='caster_back_right_link'>
-      <pose>-0.177 -0.064 -0.004 -1.57 0 0</pose>
+      <pose>-0.177 -0.064 -0.003 -1.57 0 0</pose>
       <inertial>
         <mass>0.001</mass>
         <inertia>
@@ -332,7 +332,7 @@
     </link>
 
     <link name='caster_back_left_link'>
-      <pose>-0.177 0.064 -0.004 -1.57 0 0</pose>
+      <pose>-0.177 0.064 -0.003 -1.57 0 0</pose>
       <inertial>
         <mass>0.001</mass>
         <inertia>
