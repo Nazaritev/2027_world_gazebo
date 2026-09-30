@@ -298,7 +298,7 @@
     </link>
 
     <link name='caster_back_right_link'>
-      <pose>-0.177 -0.064 -0.005 -1.57 0 0</pose>
+      <pose>-0.177 -0.064 -0.003 -1.57 0 0</pose>
       <inertial>
         <mass>0.001</mass>
         <inertia>
@@ -332,7 +332,7 @@
     </link>
 
     <link name='caster_back_left_link'>
-      <pose>-0.177 0.064 -0.005 -1.57 0 0</pose>
+      <pose>-0.177 0.064 -0.003 -1.57 0 0</pose>
       <inertial>
         <mass>0.001</mass>
         <inertia>

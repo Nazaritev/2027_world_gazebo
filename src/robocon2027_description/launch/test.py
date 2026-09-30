@@ -19,9 +19,8 @@ def generate_launch_description():
     world = LaunchConfiguration("world")
     gazebo_env = {"GAZEBO_MODEL_PATH": gazebo_models}
 
-    # ---------- TurtleBot3 Waffle Pi 的 SDF ----------
     tb3_model_sdf = PathJoinSubstitution([
-        "/home/fzx/RC_27/2027_world_gazebo/gazebo_models/turtlebot3_waffle_pi/model.sdf"
+        package_share, "gazebo_models", "turtlebot3_waffle_pi", "model.sdf"
     ])
 
     # ---------- TurtleBot3 Waffle Pi 的 URDF ----------
@@ -45,9 +44,9 @@ def generate_launch_description():
             ),
             DeclareLaunchArgument("gui", default_value="true"),
             DeclareLaunchArgument("x", default_value="5.0"),
-            DeclareLaunchArgument("y", default_value="5.0"),
-            DeclareLaunchArgument("z", default_value="0.1"),
-            DeclareLaunchArgument("yaw", default_value="0.0"),
+            DeclareLaunchArgument("y", default_value="-5.0"),
+            DeclareLaunchArgument("z", default_value="0.05"),
+            DeclareLaunchArgument("yaw", default_value="3.1415926"),
 
             # ---------- 1. gzserver：加载 world + ROS 插件 ----------
             ExecuteProcess(
@@ -87,7 +86,7 @@ def generate_launch_description():
 
             # ---------- 4. 延迟 8 秒后 spawn TurtleBot3 Waffle Pi ----------
             TimerAction(
-                period=8.0,   # 【改动】0.0 → 8.0，等 Gazebo 加载完
+                period=0.0,   # 【改动】0.0 → 8.0，等 Gazebo 加载完
                 actions=[
                     ExecuteProcess(
                         cmd=[
