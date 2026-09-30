@@ -43,3 +43,4 @@ def generate_launch_description():
             ),
         ]
     )
+# ros2 launch robocon2027_description robocon2027_world.launch.py
