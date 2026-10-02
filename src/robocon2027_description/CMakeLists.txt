@@ -12,6 +12,7 @@ install(
     worlds
     launch
     config
+    room
   DESTINATION share/${PROJECT_NAME}
 )
 
@@ -37,6 +38,7 @@ install(
     "${EXTERNAL_GAZEBO_MODELS}/turtlebot3_burger"
     "${EXTERNAL_GAZEBO_MODELS}/turtlebot3_waffle"
     "${EXTERNAL_GAZEBO_MODELS}/turtlebot3_waffle_pi"
+    "${EXTERNAL_GAZEBO_MODELS}/turtlebot3_waffle_pi_omni"
     "${EXTERNAL_GAZEBO_MODELS}/turtlebot3_common"
   DESTINATION share/${PROJECT_NAME}/gazebo_models
 )

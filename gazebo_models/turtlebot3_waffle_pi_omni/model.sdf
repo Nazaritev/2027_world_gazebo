@@ -1,0 +1,662 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="turtlebot3_waffle_pi_omni">
+  <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+
+    <link name="base_footprint"/>
+
+    <link name="base_link">
+
+      <inertial>
+        <pose>-0.064 0 0.048 0 0 0</pose>
+        <inertia>
+          <ixx>4.2111447e-02</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.2111447e-02</iyy>
+          <iyz>0</iyz>
+          <izz>7.5254874e-02</izz>
+        </inertia>
+        <mass>1.3729096e+00</mass>
+      </inertial>
+
+      <collision name="base_collision">
+        <pose>-0.064 0 0.048 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.265 0.265 0.089</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="base_visual">
+        <pose>-0.064 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://turtlebot3_common/meshes/bases/waffle_pi_base.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1.0</ambient>
+          <diffuse>0.3 0.3 0.3 1.0</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <link name='caster_back_right_link'>
+      <pose>-0.177 -0.064 0.006 -1.57 0 0</pose>
+      <inertial>
+        <mass>0.501</mass>
+        <inertia>
+          <ixx>0.00001</ixx>
+          <ixy>0.000</ixy>
+          <ixz>0.000</ixz>
+          <iyy>0.00001</iyy>
+          <iyz>0.000</iyz>
+          <izz>0.00001</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <sphere>
+            <radius>0.009000</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+5</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='caster_back_left_link'>
+      <pose>-0.177 0.064 0.006 -1.57 0 0</pose>
+      <inertial>
+        <mass>0.501</mass>
+        <inertia>
+          <ixx>0.00001</ixx>
+          <ixy>0.000</ixy>
+          <ixz>0.000</ixz>
+          <iyy>0.00001</iyy>
+          <iyz>0.000</iyz>
+          <izz>0.00001</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <sphere>
+            <radius>0.009000</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+5</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='caster_front_right_link'>
+      <pose> 0.027 -0.064 0.004 -1.57 0 0</pose>
+      <inertial>
+        <mass>0.501</mass>
+        <inertia>
+          <ixx>0.00001</ixx>
+          <ixy>0.000</ixy>
+          <ixz>0.000</ixz>
+          <iyy>0.00001</iyy>
+          <iyz>0.000</iyz>
+          <izz>0.00001</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <sphere>
+            <radius>0.009000</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+5</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='caster_front_left_link'>
+      <pose> 0.027 0.064 0.004 -1.57 0 0</pose>
+      <inertial>
+        <mass>0.501</mass>
+        <inertia>
+          <ixx>0.00001</ixx>
+          <ixy>0.000</ixy>
+          <ixz>0.000</ixz>
+          <iyy>0.00001</iyy>
+          <iyz>0.000</iyz>
+          <izz>0.00001</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <sphere>
+            <radius>0.009000</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+5</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name="imu_link">
+      <sensor name="tb3_imu" type="imu">
+        <always_on>true</always_on>
+        <update_rate>200</update_rate>
+        <imu>
+          <angular_velocity>
+            <x><noise type="gaussian"><mean>0.0</mean><stddev>2e-4</stddev></noise></x>
+            <y><noise type="gaussian"><mean>0.0</mean><stddev>2e-4</stddev></noise></y>
+            <z><noise type="gaussian"><mean>0.0</mean><stddev>2e-4</stddev></noise></z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x><noise type="gaussian"><mean>0.0</mean><stddev>1.7e-2</stddev></noise></x>
+            <y><noise type="gaussian"><mean>0.0</mean><stddev>1.7e-2</stddev></noise></y>
+            <z><noise type="gaussian"><mean>0.0</mean><stddev>1.7e-2</stddev></noise></z>
+          </linear_acceleration>
+        </imu>
+        <plugin name="turtlebot3_imu" filename="libgazebo_ros_imu_sensor.so">
+          <ros><remapping>~/out:=imu</remapping></ros>
+        </plugin>
+      </sensor>
+    </link>
+
+    <link name="base_scan">    
+      <inertial>
+        <pose>-0.052 0 0.111 0 0 0</pose>
+        <inertia>
+          <ixx>0.001</ixx><ixy>0.000</ixy><ixz>0.000</ixz>
+          <iyy>0.001</iyy><iyz>0.000</iyz><izz>0.001</izz>
+        </inertia>
+        <mass>0.114</mass>
+      </inertial>
+
+      <collision name="lidar_sensor_collision">
+        <pose>-0.052 0 0.111 0 0 0</pose>
+        <geometry>
+          <cylinder><radius>0.0508</radius><length>0.055</length></cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="lidar_sensor_visual">
+        <pose>-0.064 0 0.121 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://turtlebot3_common/meshes/sensors/lds.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1.0</ambient>
+          <diffuse>0.2 0.2 0.2 1.0</diffuse>
+        </material>
+      </visual>
+
+      <sensor name="hls_lfcd_lds" type="ray">
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <pose>-0.064 0 0.011 0 0 0</pose>
+        <update_rate>5</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1.000000</resolution>
+              <min_angle>0.000000</min_angle>
+              <max_angle>6.280000</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.200000</min>
+            <max>10.0</max>
+            <resolution>0.015000</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </ray>
+        <plugin name="turtlebot3_laserscan" filename="libgazebo_ros_ray_sensor.so">
+          <ros><remapping>~/out:=scan</remapping></ros>
+          <output_type>sensor_msgs/LaserScan</output_type>
+          <frame_name>base_scan</frame_name>
+        </plugin>
+      </sensor>
+    </link>
+
+    <!-- ============================================================ -->
+    <!-- 四个全向轮                                                   -->
+    <!-- 轮子模型：竖直放置的圆柱体，绕自身水平轴滚动                 -->
+    <!-- link 的 pose 在 joint 中定义，这里 link 内部只放几何         -->
+    <!-- ============================================================ -->
+
+    <!-- 前左轮 -->
+    <link name="wheel_front_left_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <inertia>
+          <ixx>1.8158194e-03</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>3.2922126e-03</iyy><iyz>0</iyz>
+          <izz>1.8158194e-03</izz>
+        </inertia>
+        <mass>2.8498940e-02</mass>
+      </inertial>
+
+      <!-- 轮子几何：圆柱轴沿 link 的 Y 轴，即轮子绕 Y 轴滚动 -->
+      <collision name="wheel_front_left_collision">
+        <pose>0 0 0 1.5708 0 0</pose>
+        <geometry>
+          <cylinder><radius>0.033</radius><length>0.018</length></cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <fdir1>1 0 0</fdir1>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm><soft_erp>0.2</soft_erp>
+              <kp>1e+5</kp><kd>1</kd>
+              <max_vel>0.01</max_vel><min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+
+      <visual name="wheel_front_left_visual">
+        <pose>0 0 0 1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://turtlebot3_common/meshes/wheels/right_tire.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1.0</ambient>
+          <diffuse>0.2 0.2 0.2 1.0</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- 前右轮 -->
+    <link name="wheel_front_right_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <inertia>
+          <ixx>1.8158194e-03</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>3.2922126e-03</iyy><iyz>0</iyz><izz>1.8158194e-03</izz>
+        </inertia>
+        <mass>2.8498940e-02</mass>
+      </inertial>
+
+      <collision name="wheel_front_right_collision">
+        <pose>0 0 0 1.5708 0 0</pose>
+        <geometry>
+          <cylinder><radius>0.033</radius><length>0.018</length></cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu><mu2>1.0</mu2><fdir1>1 0 0</fdir1>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm><soft_erp>0.2</soft_erp>
+              <kp>1e+5</kp><kd>1</kd>
+              <max_vel>0.01</max_vel><min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+
+      <visual name="wheel_front_right_visual">
+        <pose>0 0 0 1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://turtlebot3_common/meshes/wheels/left_tire.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1.0</ambient>
+          <diffuse>0.2 0.2 0.2 1.0</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- 后左轮 -->
+    <link name="wheel_rear_left_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <inertia>
+          <ixx>1.8158194e-03</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>3.2922126e-03</iyy><iyz>0</iyz><izz>1.8158194e-03</izz>
+        </inertia>
+        <mass>2.8498940e-02</mass>
+      </inertial>
+
+      <collision name="wheel_rear_left_collision">
+        <pose>0 0 0 1.5708 0 0</pose>
+        <geometry>
+          <cylinder><radius>0.033</radius><length>0.018</length></cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu><mu2>1.0</mu2><fdir1>1 0 0</fdir1>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm><soft_erp>0.2</soft_erp>
+              <kp>1e+5</kp><kd>1</kd>
+              <max_vel>0.01</max_vel><min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+
+      <visual name="wheel_rear_left_visual">
+        <pose>0 0 0 1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://turtlebot3_common/meshes/wheels/right_tire.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1.0</ambient>
+          <diffuse>0.2 0.2 0.2 1.0</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- 后右轮 -->
+    <link name="wheel_rear_right_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <inertia>
+          <ixx>1.8158194e-03</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>3.2922126e-03</iyy><iyz>0</iyz><izz>1.8158194e-03</izz>
+        </inertia>
+        <mass>2.8498940e-02</mass>
+      </inertial>
+
+      <collision name="wheel_rear_right_collision">
+        <pose>0 0 0 1.5708 0 0</pose>
+        <geometry>
+          <cylinder><radius>0.033</radius><length>0.018</length></cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu><mu2>1.0</mu2><fdir1>1 0 0</fdir1>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm><soft_erp>0.2</soft_erp>
+              <kp>1e+5</kp><kd>1</kd>
+              <max_vel>0.01</max_vel><min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+
+      <visual name="wheel_rear_right_visual">
+        <pose>0 0 0 1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://turtlebot3_common/meshes/wheels/left_tire.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1.0</ambient>
+          <diffuse>0.2 0.2 0.2 1.0</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <link name="camera_link"/>
+
+    <link name="camera_rgb_optical_frame">
+      <inertial>
+        <pose>0.076 0.0 0.093 0 0 0</pose>
+        <inertia>
+          <ixx>0.001</ixx><ixy>0.000</ixy><ixz>0.000</ixz>
+          <iyy>0.001</iyy><iyz>0.000</iyz><izz>0.001</izz>
+        </inertia>
+        <mass>0.035</mass>
+      </inertial>
+
+      <pose>0.076 0.0 0.093 0 0 0</pose>
+      <sensor name="camera" type="camera">
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <update_rate>30</update_rate>
+        <camera name="picam">
+          <horizontal_fov>1.085595</horizontal_fov>
+          <image><width>640</width><height>480</height><format>R8G8B8</format></image>
+          <clip><near>0.03</near><far>100</far></clip>
+          <noise><type>gaussian</type><mean>0.0</mean><stddev>0.007</stddev></noise>
+        </camera>
+        <plugin name="camera_driver" filename="libgazebo_ros_camera.so">
+          <ros></ros>
+        </plugin>
+      </sensor>
+    </link>    
+
+    <!-- ============================================================ -->
+    <!-- 关节                                                         -->
+    <!-- ============================================================ -->
+
+    <joint name="base_joint" type="fixed">
+      <parent>base_footprint</parent>
+      <child>base_link</child>
+      <pose>0.0 0.0 0.010 0 0 0</pose>
+    </joint>
+
+    <!-- 四个轮子：安装位置相对 base_link 中心对称 -->
+    <!-- 轮心高度 z=0.023（轮半径 0.033，车底离地约 0.01） -->
+    <!-- 轮子绕 Y 轴旋转（滚动方向为 X） -->
+    <!-- pose: x y z roll pitch yaw -->
+    <!-- 前左：x=+0.10, y=+0.10 -->
+    <joint name="wheel_front_left_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>wheel_front_left_link</child>
+      <pose>0.10 0.10 0.023 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>20</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0.0</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- 前右：x=+0.10, y=-0.10 -->
+    <joint name="wheel_front_right_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>wheel_front_right_link</child>
+      <pose>0.10 -0.10 0.023 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>20</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0.0</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- 后左：x=-0.10, y=+0.10 -->
+    <joint name="wheel_rear_left_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>wheel_rear_left_link</child>
+      <pose>-0.10 0.10 0.023 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>20</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0.0</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- 后右：x=-0.10, y=-0.10 -->
+    <joint name="wheel_rear_right_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>wheel_rear_right_link</child>
+      <pose>-0.10 -0.10 0.023 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>20</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0.0</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name='caster_back_right_joint' type='ball'>
+      <parent>base_link</parent>
+      <child>caster_back_right_link</child>
+    </joint>
+
+    <joint name='caster_back_left_joint' type='ball'>
+      <parent>base_link</parent>
+      <child>caster_back_left_link</child>
+    </joint>
+    <joint name='caster_front_right_joint' type='ball'>
+      <parent>base_link</parent>
+      <child>caster_front_right_link</child>
+    </joint>
+
+    <joint name='caster_front_left_joint' type='ball'>
+      <parent>base_link</parent>
+      <child>caster_front_left_link</child>
+    </joint>
+
+    <joint name="imu_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>imu_link</child>
+      <pose>-0.032 0 0.068 0 0 0</pose>
+    </joint>    
+
+    <joint name="lidar_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>base_scan</child>
+      <pose>-0.064 0 0.121 0 0 0</pose>
+    </joint>
+
+    <joint name="camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>camera_link</child>
+      <pose>0.073 -0.011 0.084 0 0 0</pose>
+    </joint>
+
+    <joint name="camera_rgb_joint" type="fixed">
+      <parent>camera_link</parent>
+      <child>camera_rgb_optical_frame</child>
+      <pose>0.003 0.011 0.009 0 0 0</pose>
+    </joint>
+
+    <!-- ============================================================ -->
+    <!-- 全向移动驱动插件                                             -->
+    <!-- planar_move：直接控制平面速度 vx, vy, wz，不依赖轮子物理    -->
+    <!-- ============================================================ -->
+    <plugin name="omni_drive" filename="libgazebo_ros_planar_move.so">
+      <ros>
+        <remapping>cmd_vel:=cmd_vel</remapping>
+        <remapping>odom:=odom</remapping>
+      </ros>
+      <update_rate>30</update_rate>
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>false</publish_wheel_tf>
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>base_footprint</robot_base_frame>
+    </plugin>
+
+    <!-- 让四个轮子随机器人速度旋转（视觉上好看） -->
+    <!-- 注意：planar_move 不会驱动关节，这里用 joint_state_publisher 只发布状态 -->
+    <plugin name="turtlebot3_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
+      <ros><remapping>~/out:=joint_states</remapping></ros>
+      <update_rate>30</update_rate>
+      <joint_name>wheel_front_left_joint</joint_name>
+      <joint_name>wheel_front_right_joint</joint_name>
+      <joint_name>wheel_rear_left_joint</joint_name>
+      <joint_name>wheel_rear_right_joint</joint_name>
+    </plugin>    
+
+  </model>
+</sdf>
