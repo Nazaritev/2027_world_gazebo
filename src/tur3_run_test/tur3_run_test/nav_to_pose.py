@@ -42,6 +42,7 @@ class NavToPose(BasicNavigator):
         self.slope_publisher.publish(sl)
         while self.bool_slope != True:
             rclpy.spin_once(self, timeout_sec=0.1)
+        self.pose_init(-1.25,-3.4,math.pi)
         self.nav_pose(-1.25,-2.74,-math.pi/2,True)
         time_start = time.time()
         while time.time() - time_start < 0.5:
